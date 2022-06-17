@@ -1,0 +1,90 @@
+{
+  // Place your diet-planner workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  "nextTypescriptReactFunctionalInterfaceExportComponent": {
+    "prefix": "nxtsrfcie",
+    "body": [
+      "import * as S from './${1:${TM_FILENAME_BASE}}.styles';",
+      "",
+      "export interface ${1:first}Props {",
+      "  sampleTextProp: string;",
+      "}",
+      "",
+      "const ${1:first}: React.FC<${1:first}Props> = ({ sampleTextProp }) => {",
+      "  return (",
+      "    <S.Container>{sampleTextProp}</S.Container>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:first};",
+      ""
+    ],
+    "description": "Creates a React Functional Component with ES7 module system and TypeScript interface importing styles",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "nextTypescriptReactFunctionalStyledContainer": {
+    "prefix": "nxtsrfsc",
+    "body": [
+      "interface ${1:Container}Props extends React.HTMLAttributes<HTMLDivElement> {",
+      "  children: React.ReactNode;",
+      "}",
+      "",
+      "export const ${1:first}: React.FC<${1:first}Props> = ({ children, ...props }) => (",
+      "  <div className='w-full h-full flex flex-col' {...props}>",
+      "    {children}",
+      "  </div>",
+      ");",
+      ""
+    ],
+    "description": "Creates a React Functional Styled Container Component",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "nextTypescriptReactComponentMock": {
+    "prefix": "nxtsrcmk",
+    "body": [
+      "import { ${TM_FILENAME_BASE/(.*)\\..+$/$1/}Props } from './${TM_FILENAME_BASE/(.*)\\..+$/$1/}';",
+      "",
+      "const base: ${TM_FILENAME_BASE/(.*)\\..+$/$1/}Props = {",
+      "  sampleTextProp: 'Hello world!',",
+      "};",
+      "",
+      "export const mock${TM_FILENAME_BASE/(.*)\\..+$/$1/}Props = {",
+      "  base,",
+      "};",
+      ""
+    ],
+    "description": "Creates a mock for Component",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "nextTypescriptReactComponentStories": {
+    "prefix": "nxtsrcsts",
+    "body": [
+      "import { ComponentStory, ComponentMeta } from '@storybook/react';",
+      "import ${TM_FILENAME_BASE/(.*)\\..+$/$1/}, { ${TM_FILENAME_BASE/(.*)\\..+$/$1/}Props } from './${TM_FILENAME_BASE/(.*)\\..+$/$1/}';",
+      "import { mock${TM_FILENAME_BASE/(.*)\\..+$/$1/}Props } from './${TM_FILENAME_BASE/(.*)\\..+$/$1/}.mocks';",
+      "",
+      "export default {",
+      "  title: '${1:templates}/${TM_FILENAME_BASE/(.*)\\..+$/$1/}',",
+      "  component: ${TM_FILENAME_BASE/(.*)\\..+$/$1/},",
+      "  argTypes: {},",
+      "} as ComponentMeta<typeof ${TM_FILENAME_BASE/(.*)\\..+$/$1/}>;",
+      "",
+      "const Template: ComponentStory<typeof ${TM_FILENAME_BASE/(.*)\\..+$/$1/}> = (args) => (",
+      "  <${TM_FILENAME_BASE/(.*)\\..+$/$1/} {...args} />",
+      ");",
+      "",
+      "export const Base = Template.bind({});",
+      "",
+      "Base.args = {",
+      "  ...mock${TM_FILENAME_BASE/(.*)\\..+$/$1/}Props.base,",
+      "} as ${TM_FILENAME_BASE/(.*)\\..+$/$1/}Props",
+      ""
+    ],
+    "description": "Creates a storybook stories file for Component",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  }
+}
