@@ -29,6 +29,8 @@
 - [ ] [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [ ] [Release Please](https://github.com/googleapis/release-please)
 - [ ] Visual Testing
+- [ ] Custom homepage
+- [ ] Add refs
 
 ### Define
 
